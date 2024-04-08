@@ -23,5 +23,6 @@ boxes.forEach((box) => {
       box.innerHTML = "X";
       turn0 = true;
     }
+    box.disabled = true;
   });
 });
