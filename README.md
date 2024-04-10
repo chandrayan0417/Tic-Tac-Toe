@@ -20,5 +20,5 @@ The game logic is implemented in `script.js` using JavaScript. It handles player
 
 ## Credits
 
-This game was created by Chandrayan Roy as a JavaScript practice project. It may be freely used and modified for personal or educational purposes.
+This game was created by Chandrayan Roy as a JavaScript practice project.
 
