@@ -63,8 +63,8 @@ body {
 }
 
 #h1 {
-  font-style: italic;
+  font-style: initial;
   font-size: 5vmin;
   color: #26313b;
-  margin-bottom: 2vmin;
+  margin-bottom: 0.5vmin;
 }

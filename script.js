@@ -1,17 +1,55 @@
 let boxes = document.body.querySelectorAll(".box");
-let resetBn = document.querySelector("#reset");
+let resetBtn = document.querySelector("#reset");
 
-let turn0 = true;
+let turnO = true;
+
+const patterns = [
+  [0, 1, 2],
+  [0, 3, 6],
+  [0, 4, 8],
+  [1, 4, 7],
+  [2, 4, 6],
+  [2, 5, 8],
+  [3, 4, 5],
+  [6, 7, 8],
+];
 
 boxes.forEach((box) => {
   box.addEventListener("click", () => {
-    if (turn0 === true) {
-      box.innerHTML = "O";
-      turn0 = false;
-    } else {
-      box.innerHTML = "X";
-      turn0 = true;
+    if (box.innerText === "") {
+      if (turnO) {
+        box.innerText = "O";
+      } else {
+        box.innerText = "X";
+      }
+      turnO = !turnO;
+      checkWinner();
+      box.disabled = true;
     }
-    box.disabled = true;
+  });
+});
+
+const checkWinner = () => {
+  for (let i of patterns) {
+    let val1 = boxes[i[0]].innerText;
+    let val2 = boxes[i[1]].innerText;
+    let val3 = boxes[i[2]].innerText;
+
+    if (val1 !== "" && val1 === val2 && val2 === val3) {
+      displayWinner(val1);
+      return;
+    }
+  }
+};
+
+const displayWinner = (winner) => {
+  console.log("Winner is: " + winner);
+  alert(`Winner is: ${winner}`);
+};
+
+resetBtn.addEventListener("click", () => {
+  boxes.forEach((box) => {
+    box.innerText = "";
+    box.disabled = false;
   });
 });
