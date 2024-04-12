@@ -32,8 +32,10 @@ boxes.forEach((box) => {
       box.disabled = true;
     }
     count++;
-    if (count === 9){
-      msg.innerText = "DRAW :(";
+    if (count === 9 && msg.innerText === "O's turn") {
+      msg.innerText = "It's a draw!";
+    } else if (count === 9 && msg.innerText === "X's turn") {
+      msg.innerText = "It's a draw!";
     }
   });
 });
