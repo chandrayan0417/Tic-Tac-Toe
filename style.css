@@ -80,3 +80,12 @@ body {
   color: #26313b;
   margin-bottom: 0.5vmin;
 }
+#winningMsg {
+  font-size: 5vmin;
+  color: #26313b;
+  font-style: inherit;
+}
+
+/* .hideMsg {
+  opacity: 0;
+} */
