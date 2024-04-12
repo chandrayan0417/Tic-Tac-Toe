@@ -2,6 +2,7 @@ let boxes = document.body.querySelectorAll(".box");
 let resetBtn = document.querySelector("#reset");
 let msgDiv = document.querySelector(".msgDiv");
 let msg = document.querySelector("#winningMsg");
+let count = 0;
 
 let turnO = true;
 
@@ -29,6 +30,10 @@ boxes.forEach((box) => {
       turnO = !turnO;
       checkWinner();
       box.disabled = true;
+    }
+    count++;
+    if (count === 9){
+      msg.innerText = "DRAW :(";
     }
   });
 });
@@ -63,6 +68,7 @@ resetBtn.addEventListener("click", () => {
     box.disabled = false;
     turnO = true;
     msg.innerText = "O's turn";
+    count = 0;
     // msgDiv.classList.add("hideMsg");
   });
 });
