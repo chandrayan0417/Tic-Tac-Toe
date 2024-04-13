@@ -22,9 +22,13 @@ boxes.forEach((box) => {
     if (box.innerText === "") {
       if (turnO) {
         box.innerText = "O";
+        box.classList.remove("red");
+        box.classList.add("green");
         msg.innerText = "X's turn";
       } else {
         box.innerText = "X";
+        box.classList.remove("green");
+        box.classList.add("red");
         msg.innerText = "O's turn";
       }
       turnO = !turnO;

@@ -39,7 +39,14 @@ body {
   box-sizing: border-box;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
   font-size: 11vmin;
-  color: #e1edf9;
+}
+
+.red{
+  color: hsl(0, 100%, 75%);
+}
+
+.green{
+  color: hsl(120, 89%, 81%);
 }
 
 @media (max-width: 600px) {
