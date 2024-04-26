@@ -21,7 +21,7 @@ boxes.forEach((box) => {
   box.addEventListener("click", () => {
     if (box.innerText === "") {
       if (turnO) {
-        box.innerText = "O";
+        box.innerText = "O" ;
         box.classList.remove("red");
         box.classList.add("green");
         msg.innerText = "X's turn";
@@ -38,8 +38,10 @@ boxes.forEach((box) => {
     count++;
     if (count === 9 && msg.innerText === "O's turn") {
       msg.innerText = "It's a draw!";
+      alert("It's a draw! RESTART THE GAME!");
     } else if (count === 9 && msg.innerText === "X's turn") {
       msg.innerText = "It's a draw!";
+      alert("It's a draw! RESTART THE GAME!");
     }
   });
 });
@@ -65,6 +67,7 @@ const disableBoxes = () => {
 const displayWinner = (winner) => {
   msg.innerText = `${winner} wins!`;
   // msgDiv.classList.remove("hideMsg");
+  alert(`${winner} wins! RESTART THE GAME!`);
   disableBoxes();
 };
 
