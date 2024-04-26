@@ -34,14 +34,13 @@ boxes.forEach((box) => {
       turnO = !turnO;
       checkWinner();
       box.disabled = true;
-    }
-    count++;
-    if (count === 9 && msg.innerText === "O's turn") {
-      msg.innerText = "It's a draw!";
-      alert("It's a draw! RESTART THE GAME!");
-    } else if (count === 9 && msg.innerText === "X's turn") {
-      msg.innerText = "It's a draw!";
-      alert("It's a draw! RESTART THE GAME!");
+      count++;
+      if (count === 9) {
+        msg.innerText = "It's a draw!";
+        setTimeout(() => {
+          endGame();
+        }, 200);
+      }
     }
   });
 });
@@ -54,6 +53,7 @@ const checkWinner = () => {
 
     if (val1 !== "" && val1 === val2 && val2 === val3) {
       displayWinner(val1);
+      return;
     }
   }
 };
@@ -66,18 +66,28 @@ const disableBoxes = () => {
 
 const displayWinner = (winner) => {
   msg.innerText = `${winner} wins!`;
-  // msgDiv.classList.remove("hideMsg");
-  alert(`${winner} wins! RESTART THE GAME!`);
-  disableBoxes();
+  setTimeout(() => {
+    endGame();
+  }, 200);
 };
 
-resetBtn.addEventListener("click", () => {
+const endGame = () => {
+  disableBoxes();
+  setTimeout(() => {
+    if (confirm("Game over! Do you want to play again?")) {
+      resetGame();
+    }
+  }, 200);
+};
+
+const resetGame = () => {
   boxes.forEach((box) => {
     box.innerText = "";
     box.disabled = false;
     turnO = true;
     msg.innerText = "O's turn";
     count = 0;
-    // msgDiv.classList.add("hideMsg");
   });
-});
+};
+
+resetBtn.addEventListener("click", resetGame);
